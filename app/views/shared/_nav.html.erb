@@ -5,3 +5,7 @@
 	</li>
 
 <% end %>
+
+<% if session[:admin] then %>
+ <%= link_to new_post_path do %><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span><% end %>
+<% end %>
