@@ -8,6 +8,6 @@
 
 Category.create(name: 'Tech')
 Category.create(name: 'Investing')
-Category.create(name: 'Speculating')
+Category.create(name: 'Trading')
 Category.create(name: 'Personal Finance')
 Category.create(name: 'Reading')
