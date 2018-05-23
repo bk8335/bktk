@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'carrierwave'
 gem 'fog'
+gem 'friendly_id', '~> 5.1'
 
 group :development, :test do
   gem 'sqlite3'
