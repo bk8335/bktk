@@ -66,7 +66,7 @@ protected
 private
 	
 	def post_params
-		params.require(:post).permit(:title, :content, :category_id, :image, :slug)
+		params.require(:post).permit(:title, :content, :category_id, :image, :slug, :author)
 	end
 
 	def find_post
