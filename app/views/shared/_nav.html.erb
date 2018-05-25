@@ -1,17 +1,21 @@
 <header>
-<div class="site-header">
-	<ul>
-		<li><h1><%= link_to 'BKTK', root_path %></h1></li>
-		<% Category.all.each do |category| %>
-			<li><%= link_to category.name, posts_path(category: category.name)%></li>
-		<% end %>
+	<li><h1><%= link_to 'BKTK', root_path %></h1></li>
+	<nav>
+		<span id="menu-icon" class = "icon-bar"></span>
 
-		<% if session[:admin] then %>
-		 <%= link_to new_post_path do %><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span><% end %>
-		<% end %>
-		<li>About</li>
-		<li>Portfolio</li>
-		<li>Side Projects</li>
-	</ul>
-</div>
+		<ul class = "nav navbar-nav navbar-right">
+			<% Category.all.each do |category| %>
+			<li><%= link_to category.name, posts_path(category: category.name)%></li>
+			<% end %>
+
+			<% if session[:admin] then %>
+			<li><%= link_to 'New Post[Admin]', new_post_path %></li>
+			<% end %>
+
+			<li>About</li>
+			<li>Portfolio</li>
+			<li>Side Projects</li>
+
+		</ul>
+	</nav>
 </header>
