@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'posts#index'
   get 'admin', to: 'posts#admin'
   resources :posts
+  get '/about', to: 'static_pages#about'
 end
