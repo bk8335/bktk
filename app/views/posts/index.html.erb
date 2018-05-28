@@ -1,7 +1,11 @@
 <% provide(:title, 'Home') %>
 <% @posts.each do |post| %>
 	<h1><%= link_to post.title, post %></h1>
-	<%= image_tag post.image_url.to_s, class: "img-responsive" %>
+	<p><%= post.created_at.strftime("%d %B %Y") %>
+	<% if post.created_at.to_date != post.updated_at.to_date %>
+		 (Updated: <%= post.updated_at.strftime("%d %B %Y") %>)
+	<% end %>
+	<%= image_tag post.image_url.to_s, class: "img-responsive about-us" %>
 	<p><%= post.content %></p>
 	<p><strong><%= post.author %></strong></p>
 	<% if session[:admin] then %>
