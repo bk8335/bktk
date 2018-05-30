@@ -2,20 +2,10 @@
 	<li><h1><%= link_to (image_tag('BKTK_logo.png', alt: 'BKTK', class:'logo')), root_path %></h1></li>
 	<nav>
 		<span id="menu-icon" class = "icon-bar"></span>
-
 		<ul class = "nav navbar-nav navbar-right">
 			<% Category.all.each do |category| %>
 			<li><%= link_to category.name, posts_path(category: category.name)%></li>
 			<% end %>
-
-			<% if session[:admin] then %>
-			<li><%= link_to 'New Post[Admin]', new_post_path %></li>
-			<% end %>
-
-			<li><%= link_to 'About', '/about'%></li>
-			<li>Portfolio</li>
-			<li>Side Projects</li>
-
 		</ul>
 	</nav>
 </header>

@@ -41,6 +41,14 @@ header {
 	z-index: 100;
 }
 
+.site-footer {
+	height: 50px;
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  flex-direction:column; 
+}
+
 .logo {
 	height: 76px;
 	width: 248px;
