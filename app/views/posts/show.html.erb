@@ -6,7 +6,7 @@
 	 (Updated: <%= @post.updated_at.strftime("%d %B %Y") %>)
 <% end %>
 <%= image_tag @post.image_url.to_s, class: "img-responsive about-us" %>
-<p><%= @post.content %></p>
+<p><%= @post.content.html_safe %></p>
 <p><strong><%= @post.author %></strong></p>
 
 <% if session[:admin] then %>
