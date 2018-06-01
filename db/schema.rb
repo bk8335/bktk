@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523192339) do
+ActiveRecord::Schema.define(version: 20180601094809) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20180523192339) do
     t.string "slug"
     t.string "author"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
+  end
+
+  create_table "subscribers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
