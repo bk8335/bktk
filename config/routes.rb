@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'admin', to: 'posts#admin'
   resources :posts
   get '/about', to: 'static_pages#about'
+  get '/side-projects', to: 'static_pages#side_projects'
 
-  post 'subscriber-signup', to: 'posts#subscriber_signup'
+  post 'subscriber-signup-post', to: 'posts#subscriber_signup'
+  post 'subscriber-signup-static', to: 'static_pages#subscriber_signup'
 end

@@ -85,7 +85,7 @@ private
 	end
 
 	def subscriber_params
-    params.require(:newsletter_subscriber).permit(:first_name, :email)
+    params.require(:subscriber).permit(:first_name, :email)
   end
 
 end
