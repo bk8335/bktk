@@ -12,7 +12,12 @@
 
   <body>
   	<%= render "shared/nav" %>
-    <%= yield %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+    <div class='main-page-content'>
+      <%= yield %>
+    </div>
     <%= render "static_pages/signup_form" %>
     <%= render "shared/footer" %>
   </body>

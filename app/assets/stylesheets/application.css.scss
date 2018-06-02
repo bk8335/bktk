@@ -46,7 +46,8 @@ header {
   display: flex;
   justify-content:center;
   align-content:center;
-  flex-direction:column; 
+  flex-direction:column;
+  border-top: 4px solid #3E9BD1;
 }
 
 .logo {
@@ -107,8 +108,10 @@ p {
 }
 
 .blog-image {
-	max-width: 50%;
-	max-height: 50%;
+	max-width: 70%;
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-us {
@@ -117,8 +120,14 @@ p {
 }
 
 .signup-form {
-	margin-top: 10px;
+	margin-top: 20px;
 	margin-bottom: 10px;
+	margin-left: 20px;
+}
+
+.main-page-content {
+	margin-left: 20%;
+	margin-right: 20%;
 }
 
 
@@ -155,7 +164,8 @@ p {
 		display: block;
 	}
 
-	.blog-image {
-		max-width: 100%;
+	.main-page-content {
+		margin-left: 5%;
+		margin-right: 5%;
 	}
 }
