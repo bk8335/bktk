@@ -9,6 +9,9 @@
 <p><%= @post.content.html_safe %></p>
 <p><strong><%= @post.author %></strong></p>
 
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="BKandTK" data-show-count="false">Tweet</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <% if session[:admin] then %>
  <%= link_to edit_post_path(@post), class: "btn btn-default" do %>
    <span class="glyphicon glyphicon-align-left" aria-hidden="true">
