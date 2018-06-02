@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'drafts', to: 'posts#draft_index'
   get '/about', to: 'static_pages#about'
   get '/side-projects', to: 'static_pages#side_projects'
+  get '/portfolio', to: 'static_pages#portfolio'
 
   post 'subscriber-signup-post', to: 'posts#subscriber_signup'
   post 'subscriber-signup-static', to: 'static_pages#subscriber_signup'

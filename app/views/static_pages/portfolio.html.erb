@@ -1,0 +1,28 @@
+<h1>BKTK Portfolio</h1>
+
+<h3>These are investments we have strong opinions on, and this is where we show our track record to the world.</h3>
+
+<p>This blog only started the end of May 2018, so we're not going to buy/sell a million different things at once. These are not investment recommendations, and this does not represent our entire portfolio. Instead think of these as side holdings, accounting for a small percentage of the total, and it will be fun measuring how our decisions stack up against the overall market. Chances are we will be amongst the 90% who underperform</p>
+
+<p>Here is a chronological order of assets we strongly like/dislike, the original post detailing why, and how the position has performed since.</p>
+
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Asset</th>
+		<th>Blog post</th>
+		<th>Long/Short</th>
+		<th>Initial Price</th>
+		<th>Current Price</th>
+		<th>Change in Value %</th>
+	</tr>
+	<tr>
+		<th><%= Date.new(2018, 6, 2)%></th>
+		<th>Ethereum</th>
+		<th><%= link_to "Long Ethereum - trust the developers", "http://www.bktk.xyz/posts/long-ethereum-trust-the-developers" %></th>
+		<th>Long</th>
+		<th>$590.44</th>
+		<th><%= JSON.parse(open("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD").read)['USD'] %></th>
+		<th></th>
+	</tr>
+</table>
