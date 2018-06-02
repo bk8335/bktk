@@ -6,6 +6,10 @@ class PostsController < ApplicationController
 	def index
 		if params[:category].blank?
   		@posts = Post.all.where.not(draft: true).order("created_at DESC")
+  		respond_to do |format|
+      format.html
+      format.rss { render :layout => false }
+    end
   	else
   		@category_id = Category.find_by(name: params[:category]).id
   		@posts = Post.where.not(draft: true, category_id: @category_id).order("created_at DESC")
