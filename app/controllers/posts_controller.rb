@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     end
   	else
   		@category_id = Category.find_by(name: params[:category]).id
-  		@posts = Post.where.not(draft: true, category_id: @category_id).order("created_at DESC")
+  		@posts = Post.where(draft: false, category_id: @category_id).order("created_at DESC")
   	end
 	end
 
