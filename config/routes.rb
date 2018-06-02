@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'posts#index'
   get 'admin', to: 'posts#admin'
   resources :posts
+  get 'drafts', to: 'posts#draft_index'
   get '/about', to: 'static_pages#about'
   get '/side-projects', to: 'static_pages#side_projects'
 

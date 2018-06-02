@@ -2,6 +2,7 @@
 	<ul>
 		<% if session[:admin] then %>
 				<li><%= link_to 'New Post[Admin]', new_post_path %></li>
+				<li><%= link_to 'Drafts[Admin]', drafts_path %></li>
 			<% end %>
 
 			<li><%= link_to 'About', '/about'%></li>

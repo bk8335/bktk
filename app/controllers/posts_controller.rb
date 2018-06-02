@@ -1,14 +1,23 @@
 class PostsController < ApplicationController
 
-	before_action :authenticate, only: [:admin, :new, :create, :edit, :update, :destroy]
+	before_action :authenticate, only: [:admin, :new, :create, :edit, :update, :destroy, :draft_index]
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
 
 	def index
 		if params[:category].blank?
-  		@posts = Post.all.order("created_at DESC")
+  		@posts = Post.all.where.not(draft: true).order("created_at DESC")
   	else
   		@category_id = Category.find_by(name: params[:category]).id
-  		@posts = Post.where(category_id: @category_id).order("created_at DESC")
+  		@posts = Post.where.not(draft: true, category_id: @category_id).order("created_at DESC")
+  	end
+	end
+
+	def draft_index
+		if params[:category].blank?
+  		@posts = Post.all.where(draft: true).order("created_at DESC")
+  	else
+  		@category_id = Category.find_by(name: params[:category]).id
+  		@posts = Post.where(draft: true, category_id: @category_id).order("created_at DESC")
   	end
 	end
 
@@ -77,7 +86,7 @@ protected
 private
 	
 	def post_params
-		params.require(:post).permit(:title, :content, :category_id, :image, :slug, :author)
+		params.require(:post).permit(:title, :content, :category_id, :image, :slug, :author, :draft)
 	end
 
 	def find_post
