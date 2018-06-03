@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180602055910) do
+ActiveRecord::Schema.define(version: 20180603055400) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180602055910) do
     t.string "slug"
     t.string "author"
     t.boolean "draft"
+    t.integer "wordcount"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 

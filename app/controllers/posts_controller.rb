@@ -90,7 +90,7 @@ protected
 private
 	
 	def post_params
-		params.require(:post).permit(:title, :content, :category_id, :image, :slug, :author, :draft)
+		params.require(:post).permit(:title, :content, :category_id, :image, :slug, :author, :draft, :wordcount)
 	end
 
 	def find_post
