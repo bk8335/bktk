@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  asset: MyString
+  ticker: MyString
+  long_or_short: MyString
+  initial_price: 9.99
+  post_id: 1
+
+two:
+  asset: MyString
+  ticker: MyString
+  long_or_short: MyString
+  initial_price: 9.99
+  post_id: 1
