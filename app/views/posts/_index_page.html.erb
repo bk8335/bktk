@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
 	<h1 class="post-title"><%= link_to post.title, post %></h1>
-	<h3 class="post-category"><%= link_to post.category.name, posts_path(category: post.category.name)%></h3>
+	<h2><%= link_to post.category.name, posts_path(category: post.category.name)%> - <i><%= post.reading_time %> min read</i></h2>
 	<p class="post-created-at"><%= post.created_at.strftime("%d %B %Y") %>
 	<% if post.created_at.to_date != post.updated_at.to_date %>
 		 (Updated: <%= post.updated_at.strftime("%d %B %Y") %>)

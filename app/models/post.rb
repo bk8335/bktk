@@ -25,8 +25,7 @@ class Post < ApplicationRecord
   end
 
   def reading_time
-    # wordcount = 1 if wordcount.nil?
-    reading_time = (wordcount / 265.0).round
+    reading_time = (wordcount / WORDS_PER_MINUTE).round
     reading_time < 1 ? "<1" : reading_time
   end
 end

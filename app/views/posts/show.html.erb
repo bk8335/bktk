@@ -1,10 +1,9 @@
 <% provide(:title, @post.title) %>
 <h1><%= @post.title %></h1>
-<h2><%= @post.reading_time %> min read</h2>
-<h3><%= link_to @post.category.name, posts_path(category: @post.category.name)%></h3>
-<p><%= @post.created_at.strftime("%d %B %Y") %>
+<h2><%= link_to @post.category.name, posts_path(category: @post.category.name)%> - <i><%= @post.reading_time %> min read</i></h2>
+<p><i><%= @post.created_at.strftime("%d %B %Y") %>
 <% if @post.created_at.to_date != @post.updated_at.to_date %>
-	 (Updated: <%= @post.updated_at.strftime("%d %B %Y") %>)
+	 (Updated: <%= @post.updated_at.strftime("%d %B %Y") %>)</i>
 <% end %>
 <%= image_tag @post.image_url.to_s, class: "img-responsive blog-image" %>
 <p><%= @post.content.html_safe %></p>
