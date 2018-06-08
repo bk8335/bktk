@@ -1,0 +1,13 @@
+<div class='signup-form', id="subscribe">
+	<h3>Get an email when we write a new post - no spam!</h3>
+	<% @subscriber = Subscriber.new %>
+		<%= form_for @subscriber, url: {action: "subscriber_signup"} do |f| %>
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name %>
+			
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+
+			<%= f.submit "Subscribe", class: "btn btn-success" %>
+		<% end %>
+</div>
