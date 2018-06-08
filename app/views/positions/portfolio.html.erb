@@ -21,8 +21,21 @@
 		<th>Ethereum</th>
 		<th><%= link_to "Long Ethereum - trust the developers", "http://www.bktk.xyz/posts/long-ethereum-trust-the-developers" %></th>
 		<th>Long</th>
-		<th>$590.44</th>
-		<th><%= JSON.parse(open("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD").read)['USD'] %></th>
-		<th></th>
+			<% initial_price = 590.44 %>
+			<% current_price = (JSON.parse(open("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD").read)['USD']) %>
+		<th><%= number_to_currency(initial_price) %></th>
+		<th><%= number_to_currency(current_price) %></th>
+		<th><%= (((current_price / initial_price ) - 1) * 100).round(2) %>%</th>
 	</tr>
+	<% @positions.each do |position| %>
+	<tr>
+		<th><%= position.created_at.strftime("%e %B %Y") %></th>
+		<th><%= position.asset %></th>
+		<th><%= link_to(position.post.title, position.post)%></th>
+		<th><%= position.long_or_short.capitalize %></th>
+		<th><%= number_to_currency(position.initial_price) %></th>
+		<th>Current Price</th>
+		<th>Current Price / Initial Price %</th>
+	</tr>
+	<% end %>
 </table>
