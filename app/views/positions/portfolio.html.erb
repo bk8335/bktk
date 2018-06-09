@@ -9,8 +9,8 @@
 	<tr>
 		<th>Date</th>
 		<th>Asset</th>
-		<th>Blog post</th>
 		<th>Long/Short</th>
+		<th>Blog post</th>
 		<th>Initial Price</th>
 		<th>Latest Price</th>
 		<th>Current Return %</th>
@@ -18,8 +18,8 @@
 	<tr>
 		<th><%= Date.new(2018, 6, 2).strftime("%e %B %Y")%></th>
 		<th>Ethereum</th>
-		<th><%= link_to "Long Ethereum - trust the developers", "http://www.bktk.xyz/posts/long-ethereum-trust-the-developers" %></th>
 		<th>Long</th>
+		<th><%= link_to "Long Ethereum - trust the developers", "http://www.bktk.xyz/posts/long-ethereum-trust-the-developers" %></th>
 			<% initial_price = 590.44 %>
 			<% current_price = (JSON.parse(open("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD").read)['USD']) %>
 		<th><%= number_to_currency(initial_price) %></th>
@@ -30,8 +30,8 @@
 	<tr>
 		<th><%= position.created_at.strftime("%e %B %Y") %></th>
 		<th><%= position.asset %></th>
-		<th><%= link_to(position.post.title, position.post)%></th>
 		<th><%= position.long_or_short.capitalize %></th>
+		<th><%= link_to(position.post.title, position.post)%></th>
 		<th><%= number_to_currency(position.initial_price) %></th>
 		<% if position.ticker.present? %>
 			<% latest_price = ((JSON.parse(open("https://api.iextrading.com/1.0/stock/#{position.ticker}/quote").read)['latestPrice'])) %>
