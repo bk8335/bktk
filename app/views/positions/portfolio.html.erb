@@ -1,5 +1,4 @@
 <h1>BKTK Portfolio</h1>
-<h1><%= @positions.count %></h1>
 <h3>These are investments we have strong opinions on, and this is where we show our track record to the world.</h3>
 
 <p>This blog only started the end of May 2018, so we're not going to buy/sell a million different things at once. These are not investment recommendations, and this does not represent our entire portfolio. Instead think of these as side holdings, accounting for a small percentage of the total, and it will be fun measuring how our decisions stack up against the overall market. Chances are we will be amongst the 90% who underperform</p>
@@ -13,11 +12,11 @@
 		<th>Blog post</th>
 		<th>Long/Short</th>
 		<th>Initial Price</th>
-		<th>Current Price</th>
-		<th>Change in Value %</th>
+		<th>Latest Price</th>
+		<th>Current Return %</th>
 	</tr>
 	<tr>
-		<th><%= Date.new(2018, 6, 2)%></th>
+		<th><%= Date.new(2018, 6, 2).strftime("%e %B %Y")%></th>
 		<th>Ethereum</th>
 		<th><%= link_to "Long Ethereum - trust the developers", "http://www.bktk.xyz/posts/long-ethereum-trust-the-developers" %></th>
 		<th>Long</th>
@@ -34,8 +33,17 @@
 		<th><%= link_to(position.post.title, position.post)%></th>
 		<th><%= position.long_or_short.capitalize %></th>
 		<th><%= number_to_currency(position.initial_price) %></th>
-		<th>Current Price</th>
-		<th>Current Price / Initial Price %</th>
+		<% if position.ticker.present? %>
+			<% latest_price = ((JSON.parse(open("https://api.iextrading.com/1.0/stock/#{position.ticker}/quote").read)['latestPrice'])) %>
+			<th><%= number_to_currency(latest_price) %></th>
+		<% else %>
+			<th>N/A</th>
+		<% end %>
+		<% change = (((latest_price / position.initial_price) - 1) * 100).round(2) if latest_price.present? %>
+		<th><%= position.long_or_short == 'long' ? change : change * -1 %>%</th>
 	</tr>
 	<% end %>
 </table>
+<br>
+<br>
+<p><i>Latest price data provided for free by <%= link_to("IEX", "https://iextrading.com/developer")%>. View <%= link_to("IEX’s Terms of Use", "https://iextrading.com/api-exhibit-a/")%>.</i></p>
