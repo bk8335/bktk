@@ -33,14 +33,9 @@
 		<th><%= position.long_or_short.capitalize %></th>
 		<th><%= link_to(position.post.title, position.post)%></th>
 		<th><%= number_to_currency(position.initial_price, unit: position.currency) %></th>
-		<% if position.ticker.present? %>
-			<% latest_price = ((JSON.parse(open("https://api.iextrading.com/1.0/stock/#{position.ticker}/quote").read)['latestPrice'])) %>
-			<th><%= number_to_currency(latest_price, unit: position.currency) %></th>
-		<% else %>
-			<th>N/A</th>
-		<% end %>
-		<% change = (((latest_price / position.initial_price) - 1) * 100).round(2) if latest_price.present? %>
-		<th><%= position.long_or_short == 'long' ? change : change * -1 %>%</th>
+		<% latest_price = position.get_latest_price(position.ticker) %>
+		<th><%= number_to_currency(latest_price, unit: position.currency) %></th>
+		<th><%= position.position_return(latest_price, position.initial_price) unless latest_price == "N/A" %>%</th>
 	</tr>
 	<% end %>
 </table>
