@@ -32,10 +32,10 @@
 		<th><%= position.asset %></th>
 		<th><%= position.long_or_short.capitalize %></th>
 		<th><%= link_to(position.post.title, position.post)%></th>
-		<th><%= number_to_currency(position.initial_price) %></th>
+		<th><%= number_to_currency(position.initial_price, unit: position.currency) %></th>
 		<% if position.ticker.present? %>
 			<% latest_price = ((JSON.parse(open("https://api.iextrading.com/1.0/stock/#{position.ticker}/quote").read)['latestPrice'])) %>
-			<th><%= number_to_currency(latest_price) %></th>
+			<th><%= number_to_currency(latest_price, unit: position.currency) %></th>
 		<% else %>
 			<th>N/A</th>
 		<% end %>
