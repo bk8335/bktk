@@ -5,7 +5,7 @@
 
 <p>Here is a chronological order of assets we strongly like/dislike, the original post detailing why, and how the position has performed since.</p>
 
-<table>
+<table id="portfolio">
 	<tr>
 		<th>Date</th>
 		<th>Asset</th>
@@ -16,26 +16,26 @@
 		<th>Current Return %</th>
 	</tr>
 	<tr>
-		<th><%= Date.new(2018, 6, 2).strftime("%e %B %Y")%></th>
-		<th>Ethereum</th>
-		<th>Long</th>
-		<th><%= link_to "Long Ethereum - trust the developers", "http://www.bktk.xyz/posts/long-ethereum-trust-the-developers" %></th>
+		<td><%= Date.new(2018, 6, 2).strftime("%e %B %Y")%></td>
+		<td>Ethereum</td>
+		<td>Long</td>
+		<td><%= link_to "Long Ethereum - trust the developers", "http://www.bktk.xyz/posts/long-ethereum-trust-the-developers" %></td>
 			<% initial_price = 590.44 %>
 			<% current_price = (JSON.parse(open("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD").read)['USD']) %>
-		<th><%= number_to_currency(initial_price) %></th>
-		<th><%= number_to_currency(current_price) %></th>
-		<th><%= (((current_price / initial_price ) - 1) * 100).round(2) %>%</th>
+		<td><%= number_to_currency(initial_price) %></td>
+		<td><%= number_to_currency(current_price) %></td>
+		<td><%= (((current_price / initial_price ) - 1) * 100).round(2) %>%</td>
 	</tr>
 	<% @positions.each do |position| %>
 	<tr>
-		<th><%= position.created_at.strftime("%e %B %Y") %></th>
-		<th><%= position.asset %></th>
-		<th><%= position.long_or_short.capitalize %></th>
-		<th><%= link_to(position.post.title, position.post)%></th>
-		<th><%= number_to_currency(position.initial_price, unit: position.currency) %></th>
+		<td><%= position.created_at.strftime("%e %B %Y") %></td>
+		<td><%= position.asset %></td>
+		<td><%= position.long_or_short.capitalize %></td>
+		<td><%= link_to(position.post.title, position.post)%></td>
+		<td><%= number_to_currency(position.initial_price, unit: position.currency) %></td>
 		<% latest_price = position.get_latest_price(position.ticker) %>
-		<th><%= number_to_currency(latest_price, unit: position.currency) %></th>
-		<th><%= position.position_return(latest_price, position.initial_price) unless latest_price == "N/A" %>%</th>
+		<td><%= number_to_currency(latest_price, unit: position.currency) %></td>
+		<td><%= position.position_return(latest_price, position.initial_price) unless latest_price == "N/A" %>%</td>
 	</tr>
 	<% end %>
 </table>

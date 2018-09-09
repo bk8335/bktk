@@ -134,6 +134,32 @@ p {
   margin-top: -25px;
 }
 
+/*PORTFOLIO TABLE*/
+#portfolio {
+	border-collapse: collapse;
+  width: 100%;
+}
+
+#portfolio td, #portfolio th {
+	border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#portfolio tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+
+#portfolio tr:hover {
+	background-color: #ddd;
+}
+
+#portfolio th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #3E9BD1;
+  color: white;
+}
 
 /*MEDIA QUERY*/
 @media only screen and (max-width : 640px) {
