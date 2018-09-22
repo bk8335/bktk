@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614090541) do
+ActiveRecord::Schema.define(version: 20180922165435) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,27 @@ ActiveRecord::Schema.define(version: 20180614090541) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "index_parts", force: :cascade do |t|
+    t.integer "index_id"
+    t.string "ticker"
+    t.string "name"
+    t.string "industry"
+    t.integer "number_of_shares"
+    t.decimal "initial_price"
+    t.decimal "price"
+    t.datetime "price_last_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "indices", force: :cascade do |t|
+    t.string "name"
+    t.decimal "starting_level"
+    t.decimal "devaluer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "positions", force: :cascade do |t|

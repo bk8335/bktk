@@ -1,0 +1,29 @@
+<%= form_for @index_part, html: { multipart: true } do |f| %>
+
+	<%= render "index_part_error_messages" %>
+
+	<%= f.label :index%><br>
+	<%= f.collection_select(:index_id, Index.all, :id, :name,
+			{prompt: 'Choose an index'}) %><br><br>
+
+	<%= f.label :ticker%><br>
+	<%= f.text_field :ticker%></br><br>
+
+	<%= f.label :name%><br>
+	<%= f.text_field :name%></br><br>
+
+	<%= f.label :industry%><br>
+	<%= f.text_field :industry%></br><br>
+
+	<%= f.label :initial_price%><br>
+	<%= f.number_field :initial_price%></br><br>
+
+	<%= f.label :number_of_shares%><br>
+	<%= f.number_field :number_of_shares, step: 0.1%></br><br>
+
+
+	<br><br>
+
+	<%= f.submit %>
+
+<% end %>

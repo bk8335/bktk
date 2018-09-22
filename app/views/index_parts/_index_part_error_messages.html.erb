@@ -1,0 +1,10 @@
+<% if @index_part.errors.any? %>
+ <div>
+ 	<p><%= pluralize(@index_part.errors.count, "error") %> prevented this index part from saving.</p>
+  <ul>
+	  <% @index_part.errors.full_messages.each do |msg| %>
+	  	<li><%= msg %></li>
+	  <% end %>
+  </ul> 
+ </div>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  starting_level: 9.99
+  devaluer: 9.99
+
+two:
+  name: MyString
+  starting_level: 9.99
+  devaluer: 9.99

@@ -1,0 +1,2 @@
+module IndexPartsHelper
+end
