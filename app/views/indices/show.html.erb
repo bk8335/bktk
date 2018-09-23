@@ -1,0 +1,24 @@
+<h1>Index Page</h1>
+<h2>There <%= @indexes.size == 1 ? 'is' : 'are' %> <%= pluralize(@indexes.count, 'index') %> </h2><br>
+
+<% @indexes.each do |index| %>
+<h1><%= index.name %></h1>
+<p>Insert description of the first index here (or store it in the db for accuracy?)</p>
+<table id="portfolio">
+	<tr>
+		<th>Ticker</th>
+		<th>Name</th>
+		<th>Industry</th>
+		<th>Initial Price</th>
+	</tr>
+	<% index.index_parts.each do |index_part| %>
+		<tr>
+			<td><%= index_part.ticker %></td>
+			<td><%= index_part.name %></td>
+			<td><%= index_part.industry %></td>
+			<td><%= index_part.initial_price %></td>
+		</tr>
+	<% end %>
+</table>
+
+<% end %>
