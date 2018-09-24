@@ -50,7 +50,7 @@ protected
 private
 
 def index_part_params
-		params.require(:index_part).permit(:index_id, :ticker, :name, :industry, :number_of_shares)
+		params.require(:index_part).permit(:index_id, :ticker, :name, :industry, :number_of_shares, :initial_price)
 	end
 
 def find_index_part

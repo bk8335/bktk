@@ -16,12 +16,10 @@
 	<%= f.text_field :industry%></br><br>
 
 	<%= f.label :initial_price%><br>
-	<%= f.number_field :initial_price%></br><br>
+	<%= f.number_field :initial_price, step: 0.01%></br><br>
 
 	<%= f.label :number_of_shares%><br>
 	<%= f.number_field :number_of_shares, step: 0.1%></br><br>
-
-
 	<br><br>
 
 	<%= f.submit %>

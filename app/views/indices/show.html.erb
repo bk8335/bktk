@@ -10,6 +10,7 @@
 		<th>Name</th>
 		<th>Industry</th>
 		<th>Initial Price</th>
+		<th>Latest Price</th>
 	</tr>
 	<% index.index_parts.each do |index_part| %>
 		<tr>
@@ -17,6 +18,7 @@
 			<td><%= index_part.name %></td>
 			<td><%= index_part.industry %></td>
 			<td><%= index_part.initial_price %></td>
+			<td><%= index_part.cached_price %></td>
 		</tr>
 	<% end %>
 </table>
