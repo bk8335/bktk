@@ -3,6 +3,9 @@
 
 <% @indexes.each do |index| %>
 <h1><%= index.name %></h1>
+<h1><%= index.index_price %></h1>
+<h2>Price change since launch (<%= index.created_at.to_date.strftime("%e %B %Y") %>) - <%= index.index_price_change %>%</h2>
+
 <p>Insert description of the first index here (or store it in the db for accuracy?)</p>
 <table id="portfolio">
 	<tr>
@@ -11,6 +14,7 @@
 		<th>Industry</th>
 		<th>Initial Price</th>
 		<th>Latest Price</th>
+		<th>Return</th>
 	</tr>
 	<% index.index_parts.each do |index_part| %>
 		<tr>
@@ -19,6 +23,7 @@
 			<td><%= index_part.industry %></td>
 			<td><%= index_part.initial_price %></td>
 			<td><%= index_part.cached_price %></td>
+			<td><%= index_part.return %>%</td>
 		</tr>
 	<% end %>
 </table>
