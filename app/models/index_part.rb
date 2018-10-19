@@ -18,10 +18,18 @@ class IndexPart < ApplicationRecord
 	end
 
 	def return
-		(((self.price / self.initial_price) - 1) * 100).round(1)
+		if self.index.short
+			percentage_change(initial_price, price, 1)
+		else
+			percentage_change(price, initial_price, 1)
+		end
 	end
 
 	def refresh_index_value
 		self.index.devaluer_multiplier
+	end
+
+	def percentage_change(numerator, denominator, precision)
+		(((numerator / denominator) - 1) * 100).round(precision)
 	end
 end
