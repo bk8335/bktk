@@ -27,7 +27,11 @@ class Index < ApplicationRecord
 		end
 
 		def index_price_change
-			percentage_change(index_price, starting_level, 2)
+			if self.short
+				percentage_change(starting_level, index_price, 2)
+			else
+				percentage_change(index_price, starting_level, 2)
+			end
 		end
 
 		def percentage_change(numerator, denominator, precision)
