@@ -15,11 +15,11 @@ class Index < ApplicationRecord
 		end
 
 		def initial_raw_price
-			intial_index_value = 0
+			initial_index_value = 0
 			self.index_parts.each do |index_part|
-				intial_index_value += index_part.initial_price * index_part.number_of_shares
+				initial_index_value += index_part.initial_price * index_part.number_of_shares
 			end
-			intial_index_value
+			initial_index_value == 0 ? 100 : initial_index_value
 		end
 
 		def devaluer_multiplier
